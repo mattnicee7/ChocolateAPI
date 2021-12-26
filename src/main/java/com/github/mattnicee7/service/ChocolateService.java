@@ -2,6 +2,7 @@ package com.github.mattnicee7.service;
 
 import com.github.mattnicee7.entities.ChocolateBar;
 import com.github.mattnicee7.repositories.ChocolateRepository;
+import com.github.mattnicee7.service.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -21,7 +22,7 @@ public class ChocolateService {
     public ChocolateBar findById(Long id) {
         Optional<ChocolateBar> chocolate = chocolateRepository.findById(id);
 
-        return chocolate.get();
+        return chocolate.orElseThrow(() -> new ResourceNotFoundException(id));
     }
 
 }

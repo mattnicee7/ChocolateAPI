@@ -2,6 +2,7 @@ package com.github.mattnicee7.service;
 
 import com.github.mattnicee7.entities.Brand;
 import com.github.mattnicee7.repositories.BrandRepository;
+import com.github.mattnicee7.service.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -21,7 +22,7 @@ public class BrandService {
     public Brand findById(Long id) {
         Optional<Brand> brand = brandRepository.findById(id);
 
-        return brand.get();
+        return brand.orElseThrow(() -> new ResourceNotFoundException(id));
     }
 
 }
