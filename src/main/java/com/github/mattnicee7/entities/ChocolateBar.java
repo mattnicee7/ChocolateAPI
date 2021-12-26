@@ -23,9 +23,6 @@ public class ChocolateBar {
     @Setter
     @ManyToOne
     @JoinColumn(name = "brand_id")
-    // Many = Chocolate
-    // One = Brand
-    // Um chocolate tem uma marca
     private Brand brand;
 
     @Getter

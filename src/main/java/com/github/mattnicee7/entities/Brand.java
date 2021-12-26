@@ -34,9 +34,6 @@ public class Brand {
     @Setter
     @JsonIgnore
     @OneToMany(mappedBy = "brand")
-    // One = Brand
-    // Many = ChocolateBar
-    // Uma marca tem varios chocolates
     private Set<ChocolateBar> chocolates = new HashSet<>();
 
     public Brand(Long id, String name, String address, Long phone) {
